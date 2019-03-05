@@ -18,5 +18,17 @@ python + dlib 进行人脸识别
     
     read human face from image or camera and maps the image of a human face to a 128 dimensional vector
     
+ ## register the face
+ ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/harden1.jpeg)
+ 
+ ## recognition 
+ ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/harden2.jpeg)
+ 
+ 
+ ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/cmp1.png)
+ 
+ ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/cmp2.png)
+ 
+    
     
 more: https://blog.csdn.net/lucky404/article/details/88184350
