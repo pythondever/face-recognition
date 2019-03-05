@@ -22,8 +22,6 @@ python + dlib 进行人脸识别
  ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/harden1.jpeg)
  
  ## recognition 
- ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/harden2.jpeg)
- 
  
  ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/cmp1.png)
  
