@@ -1,11 +1,14 @@
 # python-dlib-face-recogition
 python + dlib 进行人脸识别
 
-## python version == 3.4.5 python 版本
+## python version 
+   python 3.4.5
 
-## platform linux 操作系统
+## platform
+   linux
 
-## Dependency opencv-python，dlib 依赖包
+## Dependency 
+   opencv-python，dlib
 
 
 ### step 1 register face from image or camera 第一步先注册人脸(从图片/摄像头)
