@@ -1,4 +1,4 @@
-# python-dlib-face-recogition
+# face-recogition
 python + dlib 进行人脸识别
 
 ## python version 
