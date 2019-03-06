@@ -9,12 +9,12 @@ python + dlib 进行人脸识别
 
 
 ### step 1 register face from image or camera 第一步先注册人脸(从图片/摄像头)
-    python face_register.py
+    python face_register.py -t 1
     
     register face will generate csv file save human face to a 128 dimensional vector
 
 ### step 2 recogition face from image or camera 第二步识别人脸(从图片/摄像头)
-    python face_recognition.py
+    python face_recognition.py -t 1
     
     read human face from image or camera and maps the image of a human face to a 128 dimensional vector
     
