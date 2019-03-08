@@ -1,6 +1,8 @@
+import os
 import cv2
 import glob
 import random
+import argparse
 import cv_tools
 import dlib_tools
 import numpy as np
@@ -99,6 +101,28 @@ class FaceRecognition:
         else:
             return False
 
+    def run(self):
+        """
+        """
+        parse = argparse.ArgumentParser(description="face recognition tools")
+        parse.add_argument('-t', '--type', required=True, choices=['0', '1'], help="face recognition type: 0(image), 1(camera)")
+        parse.add_argument('-i', '--image', required=False, help="image path")
+        args = parse.parse_args()
+        print(args.type)
+        if args.type == '0':
+            img = args.image
+            if not img:
+                print("请指定一张图片")
+                return
+            if not os.path.exists(img):
+                print("图片不存在")
+                return
+            else:
+                self.read_face_from_image(img)
+        else:
+            self.read_face_from_camera0()
+
+
 
 
 if __name__ == '__main__':
@@ -107,5 +131,6 @@ if __name__ == '__main__':
     image = '/home/fantasy/faces/james.jpeg'
     reco = FaceRecognition(path)
     # reco.read_face_from_camera0()
-    reco.read_face_from_image(image)
+    # reco.read_face_from_image(image)
+    reco.run()
 

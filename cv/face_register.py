@@ -2,6 +2,7 @@ import os
 import cv2
 import dlib
 import shutil
+import argparse
 import cv_tools
 from pathlib import Path
 from face_128D import FaceFeatureTo128D
@@ -12,7 +13,7 @@ class FaceRegisterTool:
     注册人脸,保存到地址的路径
     """
 
-    def __init__(self, save_path):
+    def __init__(self, save_path='./faces'):
         """
         param: save_path 人脸图片保存路径
         """
@@ -101,9 +102,30 @@ class FaceRegisterTool:
         cv2.destroyAllWindows()
         self.face128D.faces_to_128D()
 
+    def run(self):
+        """
+        """
+        parse = argparse.ArgumentParser(description="face recognition tools")
+        parse.add_argument('-t', '--type', required=True, choices=['0', '1'], help="face recognition type: 0(image), 1(camera)")
+        parse.add_argument('-i', '--image', required=False, help="image path")
+        args = parse.parse_args()
+        if args.type == '0':
+            img = args.image
+            if not img:
+                print("请指定一张图片")
+                return
+            if not os.path.exists(img):
+                print("图片不存在")
+                return
+            else:
+                self.add_face_from_image(img)
+        else:
+            self.add_face_from_camera()
+
 if __name__ == '__main__':
-    save_path = '/home/fantasy/MachineLearning/cv/data/faces'
+    save_path = './faces'
     img = '/home/fantasy/faces/harden1.jpeg'
     tools = FaceRegisterTool(save_path)
     # tools.add_face_from_camera()
-    tools.add_face_from_image(img)
+    # tools.add_face_from_image(img)
+    tools.run()
