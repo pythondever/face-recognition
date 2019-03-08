@@ -24,7 +24,7 @@ python + dlib 进行人脸识别
  ## register the face from image 从图像中注册面部信息
  ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/harden1.jpeg)
  
- ## recognition 识别结果
+ ## recognition from image 从图像中给定不同的面部信息的识别结果
  
  ![](https://github.com/pythondever/python-dlib-face-recogition/blob/master/cv/data/faces/cmp1.png)
  
