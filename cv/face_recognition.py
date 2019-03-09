@@ -48,7 +48,7 @@ class FaceRecognition:
         all_csv = glob.glob(self.csv_path + '/*.csv')
         for filename in all_csv:
             array = np.loadtxt(filename, delimiter=',')
-            print("加载已有的面部特征文件 %s" % filename)
+            print("loading data %s" % filename)
             self.all_load_feature.append(array)
 
     def read_face_from_image(self, image):
@@ -95,7 +95,7 @@ class FaceRecognition:
         # distance = np.sqrt(np.sum(np.square(face1 - face2)))
         # 计算两张脸的欧式距离 方法 3
         distance = np.linalg.norm(face1- face2)
-        print(distance)
+        print('euclidean metric:%s' % distance)
         if(distance < 0.5):
             return True
         else:
@@ -112,10 +112,10 @@ class FaceRecognition:
         if args.type == '0':
             img = args.image
             if not img:
-                print("请指定一张图片")
+                print("face register from image need a image not None")
                 return
             if not os.path.exists(img):
-                print("图片不存在")
+                print("image not exists")
                 return
             else:
                 self.read_face_from_image(img)

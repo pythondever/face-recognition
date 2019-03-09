@@ -65,7 +65,11 @@ class FaceRegisterTool:
         rgb_image = cv_tools.bgr2rgb(imdata)
         faces = self.detector(rgb_image, 1)
         if len(faces) == 0:
-            print("没有检测到人脸: %s" % image)
+            print("No face was detected!: %s" % image)
+            return
+        elif len(faces) > 1:
+            print("Too many face")
+            return
 
         else:
             shutil.copy2(image, self.save_path)
@@ -89,10 +93,12 @@ class FaceRegisterTool:
             if press == ord('a'):
                 if len(data) == 0:
                     cv_tools.putText(frame, "No face was detected!", color=(0, 0, 255))
+                elif len(data) > 1:
+                    cv_tools.putText(frame, "Too many face!", color=(0, 0, 255))
                 else:
                     count += 1
                     impath = Path(self.save_path).joinpath('%s.jpg' % count)
-                    print("保存照片 %s" % impath)
+                    print("save picture %s" % impath)
                     cv2.imwrite(str(impath), frame)
             self.has_faces(frame, data)
             cv_tools.putText(frame, 'a:Add', location=(40, 300))
@@ -112,10 +118,10 @@ class FaceRegisterTool:
         if args.type == '0':
             img = args.image
             if not img:
-                print("请指定一张图片")
+                print("face register from image need a image not None")
                 return
             if not os.path.exists(img):
-                print("图片不存在")
+                print("image not exists %s" % img)
                 return
             else:
                 self.add_face_from_image(img)

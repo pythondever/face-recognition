@@ -42,7 +42,10 @@ class FaceFeatureTo128D:
             image_rgb = cv_tools.bgr2rgb(imdata)
             has_face = detector(image_rgb, 1)
             if len(has_face) == 0:
-                print("未检测到人脸 %s" % image)
+                print("No face was detected! %s" % image)
+                continue
+            if len(has_face) > 1:
+                print("Too many face: %s" % image)
                 continue
             count += 1
             shape = predictor(image_rgb, has_face[0])
@@ -53,7 +56,7 @@ class FaceFeatureTo128D:
                 feature_array = np.append(feature_array, desc)
             filename = str(count) + '.csv'
             filename = os.path.join('feature', filename)
-            print("保存 %s 特征文件 %s" % (image, filename))
+            print("save %s facial features %s" % (image, filename))
             self.face_feature_to_csv(filename, feature_array)
         cv2.destroyAllWindows()
 
