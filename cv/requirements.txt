@@ -14,7 +14,7 @@ constantly==15.1.0
 cryptography==2.3.1
 cssselect==1.0.3
 cycler==0.10.0
-dask==0.18.2
+dask==2021.10.0
 decorator==4.3.0
 dlib==19.16.0
 gast==0.2.0
