@@ -6,7 +6,7 @@ attrs==18.2.0
 Automat==0.7.0
 backcall==0.1.0
 better-exceptions==0.2.2
-certifi==2018.8.24
+certifi==2022.12.7
 cffi==1.11.5
 chardet==3.0.4
 cloudpickle==0.6.1
